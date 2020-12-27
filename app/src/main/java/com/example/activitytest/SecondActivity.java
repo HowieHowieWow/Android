@@ -23,17 +23,24 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_layout);
-        Intent intent = getIntent();
-        String data = intent.getStringExtra("extra_data");
-        Log.d("SecondActivity", data);
+        // 接收数据
+        //Intent intent = getIntent();
+        //String data = intent.getStringExtra("extra_data");
+        //Log.d("SecondActivity", data);
+        //Log.d("SecondActivity", this.toString());
+        Log.d("SecondActivity", "Task ID is " + getTaskId());
         Button button2 = findViewById(R.id.button2);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.putExtra("data_return", "Comes from SecondActivity");
-                setResult(RESULT_OK, intent);
-                finish();
+                // 发送数据
+//                Intent intent = new Intent();
+//                intent.putExtra("data_return", "Comes from SecondActivity");
+//                setResult(RESULT_OK, intent);
+//                finish();
+
+                Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
+                startActivity(intent);
             }
         });
 

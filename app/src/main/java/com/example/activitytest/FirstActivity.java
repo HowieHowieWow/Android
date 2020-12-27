@@ -54,6 +54,8 @@ public class FirstActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Log.d("FirstActivity", this.toString());
+        Log.d("FirstActivity", "Task ID is " + getTaskId());
         setContentView(R.layout.first_layout);
 
         Button button1 = findViewById(R.id.button1);
@@ -67,8 +69,8 @@ public class FirstActivity extends AppCompatActivity {
                 //finish();
 
                 //显式intent
-                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
-                intent.putExtra("extra_data", "Hello SecondActivity!");
+                //Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+                //intent.putExtra("extra_data", "Hello SecondActivity!");
                 //隐式intent
                 //Intent intent = new Intent("com.example.activitytest.ACTION_START");
                 //intent.addCategory("com.example.activitytest.MY_CATEGORY");
@@ -83,7 +85,10 @@ public class FirstActivity extends AppCompatActivity {
                 //intent.setData(Uri.parse("tel: 10086"));
 
                 //startActivity(intent);
-                startActivityForResult(intent, 1);
+                //startActivityForResult(intent, 1);
+
+                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+                startActivity(intent);
             }
         });
     }
